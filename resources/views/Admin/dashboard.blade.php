@@ -4,14 +4,14 @@
     <div class="text-center">
     @if(Auth::check())
     <p><strong>Welcome, {{ Auth::user()->name }}</strong></p>
-@else
+    @else
     <p>You are not logged in.</p>
-@endif
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+    @endif
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
         <img src="https://res.cloudinary.com/zenbusiness/q_auto/v1/logaster/logaster-2019-02-0175-h-paperless-post-logo-17.png" class="img-fluid" style="height:200px" alt="">
     </div>
     <form action="{{route('adminPost.store')}}" method="post">

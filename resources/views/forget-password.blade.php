@@ -13,25 +13,21 @@
             @endforeach
         </div>
         @endif
-            <h5 class="card-title text-center">Login</h5>
-            <form action="{{route('login.check')}}" method="post">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+            <h5 class="card-title text-center">Forget Password</h5>
+            <form action="{{route('forget.passwordstore')}}" method="post">
               @csrf
+              <p>We will send a link to your email, use that link to reset password</p>
               <div class="mb-3">
                 <label for="username" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email"id="username">
               </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password">
-              </div>
               <div class="text-center mb-3">
-                <button type="submit" class="btn btn-primary">Login</button>
-              </div>
-
-              <div class="text-center">
-              <a href="{{route('forget.password')}}" class="btn btn-link">Forgot Password?</a>
-                <a href="{{route('register')}}" class="btn btn-secondary">Register</a>
-                
+                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>

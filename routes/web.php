@@ -25,6 +25,10 @@ Route::get('/login',[BaseController::class,'login'])->name('login');
 Route::post('/login',[BaseController::class,'loginCheck'])->name('login.check');
 Route::get('/register',[BaseController::class,'register'])->name('register');
 Route::post('/register',[BaseController::class,'registerStore'])->name('register.store');
+Route::get('/forget-password',[BaseController::class,'forgetPassword'])->name('forget.password');
+Route::post('/forget-password',[BaseController::class,'forgetPasswordstore'])->name('forget.passwordstore');
+Route::get('/reset-password/{token}',[BaseController::class,'resetPassword'])->name('reset.password');
+Route::post('/reset-password',[BaseController::class,'resetPasswordstore'])->name('reset.passwordstore');
 
     //All the route under middleware will work only after login
 Route::group(['middleware' => 'auth'],function(){
